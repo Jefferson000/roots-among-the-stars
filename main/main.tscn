@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm6hvrg5bxyb0"]
+
+[ext_resource type="PackedScene" uid="uid://b85as4jy5ev2e" path="res://portotype/01.tscn" id="1_53q0u"]
+[ext_resource type="Script" uid="uid://ruidht000hyq" path="res://main/main.gd" id="1_pjrb6"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pjrb6")
+
+[node name="GameContainer" type="SubViewportContainer" parent="."]
+layout_mode = 0
+offset_right = 2.0
+offset_bottom = 2.0
+mouse_filter = 0
+
+[node name="GameViewport" type="SubViewport" parent="GameContainer"]
+disable_3d = true
+handle_input_locally = false
+size = Vector2i(2, 2)
+render_target_update_mode = 4
+
+[node name="01 will be main menu" parent="GameContainer/GameViewport" instance=ExtResource("1_53q0u")]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Label" type="Label" parent="UI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Testing"
