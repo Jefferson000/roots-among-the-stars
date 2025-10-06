@@ -1,6 +1,7 @@
 class_name State_Ide extends State
 
 @onready var walk_state: State = $"../Walk"
+@onready var attack_state: State = $"../Attack"
 
 ## When the player enters this state
 func enter() -> void:
@@ -28,7 +29,7 @@ func physics(_delta: float) -> State:
 ## Input events in this state
 func handle_input(_event: InputEvent) -> State:
 	if _event.is_action_pressed("attack"):
-		print("attack")
+		return attack_state
 	#elif _event.is_action_pressed("interact"):
 		#PlayerManager.interact()
 	return null

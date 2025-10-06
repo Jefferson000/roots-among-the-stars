@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyw2rdxcb5sbp"]
+
+[ext_resource type="Script" uid="uid://mvxprvxk5lxg" path="res://custom_node/hit_box/hit_box.gd" id="1_d7w3j"]
+
+[node name="HitBox" type="Area2D"]
+monitorable = false
+script = ExtResource("1_d7w3j")

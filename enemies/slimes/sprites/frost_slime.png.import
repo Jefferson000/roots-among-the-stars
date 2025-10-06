@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dujtkiqpg6bxc"
-path="res://.godot/imported/Girl-Sheet.png-47b63c0fb0279d2cee2eb5fa46a30abe.ctex"
+uid="uid://cyq16taf5he6f"
+path="res://.godot/imported/frost_slime.png-e4f821f1c34138ee596b59b65b14ca8b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/sprites/Girl-Sheet.png"
-dest_files=["res://.godot/imported/Girl-Sheet.png-47b63c0fb0279d2cee2eb5fa46a30abe.ctex"]
+source_file="res://enemies/slimes/sprites/frost_slime.png"
+dest_files=["res://.godot/imported/frost_slime.png-e4f821f1c34138ee596b59b65b14ca8b.ctex"]
 
 [params]
 

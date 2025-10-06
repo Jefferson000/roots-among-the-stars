@@ -1,0 +1,216 @@
+[gd_scene load_steps=21 format=3 uid="uid://be8wx8fhva7t7"]
+
+[ext_resource type="Texture2D" uid="uid://cyq16taf5he6f" path="res://enemies/slimes/sprites/frost_slime.png" id="1_ji3n0"]
+[ext_resource type="Script" uid="uid://dxx1p10gya55q" path="res://enemies/enemy.gd" id="1_jsber"]
+[ext_resource type="PackedScene" uid="uid://dyw2rdxcb5sbp" path="res://custom_node/hit_box/hit_box.tscn" id="2_5bj3x"]
+[ext_resource type="PackedScene" uid="uid://deuahev38j2cq" path="res://custom_node/hurt_box/hurt_box.tscn" id="3_byhf1"]
+[ext_resource type="Script" uid="uid://6tv2ec6d3x7a" path="res://enemies/state_machine/state_machine.gd" id="4_byhf1"]
+[ext_resource type="Script" uid="uid://d1eugkymstq5h" path="res://enemies/state_machine/states/idle.gd" id="5_5e3lu"]
+[ext_resource type="Script" uid="uid://cdq1ujb1217n1" path="res://enemies/state_machine/states/wander.gd" id="6_k63kb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uo6nn"]
+radius = 3.0
+height = 10.0
+
+[sub_resource type="Animation" id="Animation_5bj3x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_byhf1"]
+_data = {
+&"RESET": SubResource("Animation_5bj3x")
+}
+
+[sub_resource type="Animation" id="Animation_5e3lu"]
+resource_name = "down"
+length = 0.46
+loop_mode = 1
+step = 0.08
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07692308, 0.15384616, 0.23076923, 0.30769232, 0.3846154),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_k63kb"]
+resource_name = "up"
+length = 0.46
+loop_mode = 1
+step = 0.08
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07692308, 0.15384616, 0.23076923, 0.30769232, 0.3846154),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_jsber"]
+resource_name = "side"
+length = 0.46
+loop_mode = 1
+step = 0.08
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07692308, 0.15384616, 0.23076923, 0.30769232, 0.3846154),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 16, 17]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k63kb"]
+_data = {
+&"down": SubResource("Animation_5e3lu"),
+&"side": SubResource("Animation_jsber"),
+&"up": SubResource("Animation_k63kb")
+}
+
+[sub_resource type="Animation" id="Animation_22jdq"]
+resource_name = "down"
+length = 0.61
+loop_mode = 1
+step = 0.08
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07692308, 0.15384616, 0.23076923, 0.30769232, 0.3846154, 0.46153846, 0.53846157),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [18, 19, 20, 21, 22, 23, 24, 25]
+}
+
+[sub_resource type="Animation" id="Animation_m4mcl"]
+resource_name = "up"
+length = 0.61
+loop_mode = 1
+step = 0.08
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07692308, 0.15384616, 0.23076923, 0.30769232, 0.3846154, 0.46153846, 0.53846157),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [26, 27, 28, 29, 30, 31, 32, 33]
+}
+
+[sub_resource type="Animation" id="Animation_7ayfl"]
+resource_name = "side"
+length = 0.61
+loop_mode = 1
+step = 0.08
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07692308, 0.15384616, 0.23076923, 0.30769232, 0.3846154, 0.46153846, 0.53846157),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [34, 35, 36, 37, 38, 39, 40, 41]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jsber"]
+_data = {
+&"down": SubResource("Animation_22jdq"),
+&"side": SubResource("Animation_7ayfl"),
+&"up": SubResource("Animation_m4mcl")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5bj3x"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_byhf1"]
+radius = 7.0
+
+[node name="FrostSlime" type="CharacterBody2D"]
+collision_layer = 256
+collision_mask = 16
+script = ExtResource("1_jsber")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -6)
+texture = ExtResource("1_ji3n0")
+hframes = 20
+vframes = 6
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_uo6nn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_byhf1"),
+&"idle": SubResource("AnimationLibrary_k63kb"),
+&"walk": SubResource("AnimationLibrary_jsber")
+}
+autoplay = "idle/down"
+
+[node name="HitBox" parent="." instance=ExtResource("2_5bj3x")]
+collision_layer = 256
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_5bj3x")
+debug_color = Color(1, 0, 0, 0)
+
+[node name="HurtBox" parent="." instance=ExtResource("3_byhf1")]
+collision_layer = 256
+collision_mask = 0
+monitoring = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_byhf1")
+debug_color = Color(1, 1, 0, 0)
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("4_byhf1")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("after_idle_state")]
+script = ExtResource("5_5e3lu")
+after_idle_state = NodePath("../Wander")
+
+[node name="Wander" type="Node" parent="StateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("6_k63kb")
+next_state = NodePath("../Idle")
