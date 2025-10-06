@@ -64,20 +64,6 @@ func set_direction() -> bool:
 			best_dot = dot
 			best_i = i
 
-	if abs(direction.x) > 0.0:
-		# if we would face UP but there's horizontal input, prefer side
-		if direction.y < 0.0 and DIR_4[best_i] == Vector2.UP:
-			if direction.x < 0.0:
-				best_i = 2  # LEFT
-			else:
-				best_i = 0  # RIGHT
-		# if we would face DOWN but there's horizontal input, prefer side
-		elif direction.y > 0.0 and DIR_4[best_i] == Vector2.DOWN:
-			if direction.x < 0.0:
-				best_i = 2  # LEFT
-			else:
-				best_i = 0  # RIGHT
-
 	var new_dir: Vector2 = DIR_4[best_i]
 
 	if new_dir == cardinal_direction:

@@ -40,6 +40,8 @@ func exit() -> void:
 
 ## During the _process update in this State
 func process(_delta: float) -> EnemyState:
+	enemy.position = enemy.position.round()
+
 	enemy.velocity -= enemy.velocity * decelerate_speed * _delta
 	return null
 
