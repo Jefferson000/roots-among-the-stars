@@ -5,7 +5,6 @@ class_name State_Ide extends State
 
 ## When the player enters this state
 func enter() -> void:
-	print("start idle state")
 	player.update_animation("idle")
 	pass
 

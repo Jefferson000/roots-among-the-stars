@@ -9,6 +9,6 @@ func _ready() -> void:
 
 func _area_entered( a : Area2D) -> void:
 	if a is HurtBox:
-		print("hit_box doing damage: ", self.damage)
+		#print("hit_box doing damage: ", self.damage)
 		did_damage.emit()
 		a.take_damage( self )

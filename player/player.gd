@@ -8,12 +8,14 @@ const FACE_BIAS := 0.10
 var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
 
+@onready var hurt_box : HurtBox = $HurtBox
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var state_machine : PlayerStateMachine = $StateMachine
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 
 
 signal direction_changed( new_direction: Vector2 )
+signal player_damage( hurt_box : HurtBox )
 
 var invulnerable : bool = false
 var hp : int = 6
@@ -22,6 +24,8 @@ var max_hp : int = 6
 func _ready() -> void:
 	PlayerManager.player = self
 	state_machine.initialize(self)
+	hurt_box.damaged.connect( _take_damage )
+	update_hp(99)
 
 func _process(_delta: float) -> void:
 	direction = Vector2(
@@ -29,21 +33,21 @@ func _process(_delta: float) -> void:
 		Input.get_axis("up", "down")
 	).normalized()
 
+
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
-	global_position = global_position.round()  # <- snap AFTER moving
 
-#func _unhandled_input(event: InputEvent) -> void:
-	#if event.is_action("test"):
-#
-		### Auto Kill Test
-		##update_hp(-99)
-		##player_damage.emit( %AttackHurtBox )
-#
-		### Camara Test
-		##PlayerManager.shake_camara()
-#
-		#pass
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action("test"):
+
+		## Auto Kill Test
+		#update_hp(-99)
+		#player_damage.emit( %AttackHurtBox )
+
+		## Camara Test
+		#PlayerManager.shake_camara()
+
+		pass
 
 func set_direction() -> bool:
 	if direction == Vector2.ZERO:
@@ -85,7 +89,6 @@ func set_direction() -> bool:
 
 func update_animation(state: String) -> void:
 	var animation : String = state + "/" + anim_direction()
-	#print( animation )
 	animation_player.play( animation )
 
 func anim_direction() -> String:
@@ -95,3 +98,31 @@ func anim_direction() -> String:
 		return "up"
 	else:
 		return "side"
+
+func _take_damage( hit_box : HitBox ) -> void:
+	if invulnerable:
+		return
+	if hp > 0:
+		update_hp( -hit_box.damage )
+		player_damage.emit( hit_box )
+
+func update_hp( delta : int ) -> void:
+	hp = clampi( hp + delta, 0, max_hp )
+	#PlayerHud.update_hp( hp, max_hp ) TODO
+
+func make_invulnerable( _duration : float = 1.0 ) -> void:
+	invulnerable = true
+	hurt_box.monitoring = false
+	await get_tree().create_timer( _duration ).timeout
+
+	invulnerable = false
+	hurt_box.monitoring = true
+
+#TODO
+#func pickup_item( _t : Throwable ) -> void:
+	#state_machine.change_state( lift_state )
+	#carry_state.throwable = _t
+
+func revive_player() -> void:
+	update_hp(99)
+	state_machine.change_state( $StateMachine/Idle )

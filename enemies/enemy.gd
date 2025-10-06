@@ -33,7 +33,6 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
-
 func set_direction( _new_direction : Vector2) -> bool:
 	direction = _new_direction
 	if direction == Vector2.ZERO:
@@ -75,7 +74,7 @@ func _take_damage( _hit_box : HitBox ) -> void:
 	if invulnerable:
 		return
 	hp -= _hit_box.damage
-	PlayerManager.shake_camara()
+	#PlayerManager.shake_camara() TODO
 	if hp > 0:
 		enemy_damaged.emit( _hit_box )
 	else:

@@ -20,7 +20,6 @@ func _ready() -> void:
 	pass
 
 func _process(_dt: float) -> void:
-	pass
 	global_position = global_position.round()  # whole pixels = no shimmer
 
 func update_limits(bounds: Array[Vector2]) -> void:

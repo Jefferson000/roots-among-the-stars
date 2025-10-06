@@ -35,7 +35,6 @@ func initialize(_player : Player) -> void:
 
 	change_state(states[0])
 	process_mode = Node.PROCESS_MODE_INHERIT
-	print("states initialized: ", states)
 
 func change_state(new_state: State) -> void:
 	if new_state == null or new_state == current_state:
