@@ -36,6 +36,7 @@ func _process(_delta: float) -> void:
 
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
+	position = position.round()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action("test"):

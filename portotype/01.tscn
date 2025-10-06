@@ -27,10 +27,10 @@ position = Vector2(154, 127)
 position = Vector2(101, 118)
 
 [node name="FrostSlime2" parent="." instance=ExtResource("3_catal")]
-position = Vector2(189, 77)
+position = Vector2(200, 133)
 
 [node name="FrostSlime3" parent="." instance=ExtResource("3_catal")]
-position = Vector2(158, 163)
+position = Vector2(146, 92)
 
 [node name="FrostSlime4" parent="." instance=ExtResource("3_catal")]
-position = Vector2(226, 129)
+position = Vector2(141, 164)

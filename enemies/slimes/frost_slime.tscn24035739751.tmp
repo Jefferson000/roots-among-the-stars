@@ -332,7 +332,6 @@ after_idle_state = NodePath("../Wander")
 
 [node name="Wander" type="Node" parent="StateMachine" node_paths=PackedStringArray("next_state")]
 script = ExtResource("6_k63kb")
-state_animation_duration = 0.61
 next_state = NodePath("../Idle")
 
 [node name="Stun" type="Node" parent="StateMachine" node_paths=PackedStringArray("next_state")]

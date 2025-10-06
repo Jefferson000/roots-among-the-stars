@@ -6,8 +6,8 @@ class_name WanderEnemyState extends EnemyState
 @export_category("IA")
 @export var state_animation_duration : float = 0.5
 @export var next_state : EnemyState
-@export var state_cycles_min : int = 1
-@export var state_cycles_max : int = 3
+@export var state_cycles_min : int = 2
+@export var state_cycles_max : int = 4
 
 var _timer : float = 0.0
 var _direction : Vector2
@@ -28,6 +28,7 @@ func enter() -> void:
 
 ## When the enemy leaves this state
 func exit() -> void:
+	enemy.position = enemy.position.round()
 	pass
 
 ## During the _process update in this State
