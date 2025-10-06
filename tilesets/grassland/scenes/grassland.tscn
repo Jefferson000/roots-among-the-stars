@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdpudyxdim2os"]
+[gd_scene load_steps=5 format=3 uid="uid://cdpudyxdim2os"]
 
 [ext_resource type="Texture2D" uid="uid://d1vrcla1obttf" path="res://tilesets/grassland/sprites/ground_grasss.png" id="1_yreja"]
+[ext_resource type="Script" uid="uid://x08ax2qu2ieb" path="res://tilesets/level_tileset.gd" id="2_sjwj2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sjwj2"]
 texture = ExtResource("1_yreja")
@@ -329,3 +330,4 @@ sources/0 = SubResource("TileSetAtlasSource_sjwj2")
 
 [node name="Grassland" type="TileMapLayer"]
 tile_set = SubResource("TileSet_1tbs1")
+script = ExtResource("2_sjwj2")
