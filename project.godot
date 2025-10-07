@@ -17,8 +17,8 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 [autoload]
 
 LevelManager="*res://autoload/level_manager.gd"
-PlayerHud="*res://gui/player_hud/player_hud.tscn"
 PlayerManager="*res://autoload/player_manager.gd"
+PlayerHud="*res://gui/player_hud/player_hud.tscn"
 DevWindow="*res://autoload/dev_window.gd"
 
 [display]
