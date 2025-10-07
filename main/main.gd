@@ -6,6 +6,7 @@ extends Control
 @export var use_borderless_for_presets: bool = true
 
 const BASE: Vector2i = Vector2i(320, 180)
+const RES_180P:  Vector2i = Vector2i(320, 180)
 const RES_720P:  Vector2i = Vector2i(1280, 720)
 const RES_1080P: Vector2i = Vector2i(1920, 1080)
 
@@ -25,6 +26,8 @@ func _ready() -> void:
 	get_viewport().size_changed.connect(_apply_integer_scale)
 
 func _input(e: InputEvent) -> void:
+	if e.is_action_pressed("set_180p"):
+		_apply_window_preset(RES_180P)
 	if e.is_action_pressed("set_720p"):
 		_apply_window_preset(RES_720P)
 	elif e.is_action_pressed("set_1080p"):
