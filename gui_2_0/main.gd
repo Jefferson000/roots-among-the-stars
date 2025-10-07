@@ -5,8 +5,8 @@ func _input(event):
 		print("paused")
 		get_tree().paused = !get_tree().paused
 		if get_tree().paused:
-			$SubViewportContainer/UI/PauseMenu.show()
-			$SubViewportContainer/UI/HUD.hide()
+			$UI/PauseMenu.show()
+			$UI/HUD.hide()
 		else:
-			$SubViewportContainer/UI/PauseMenu.hide()
-			$SubViewportContainer/UI/HUD.show()
+			$UI/PauseMenu.hide()
+			$UI/HUD.show()

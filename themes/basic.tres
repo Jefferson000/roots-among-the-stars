@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://6oek8wgxui50"]
+
+[ext_resource type="FontFile" uid="uid://bney0q0cik71m" path="res://gui_2_0/fonts/Abaddon Bold.ttf" id="1_xisqa"]
+
+[resource]
+default_font = ExtResource("1_xisqa")
