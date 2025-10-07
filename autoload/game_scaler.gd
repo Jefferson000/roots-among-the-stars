@@ -6,6 +6,7 @@ const BASE_HEIGHT = 180
 func _ready():
 	get_tree().root.size_changed.connect(_on_window_resized)
 	center_window()
+	set_720p()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("set_1080p"):

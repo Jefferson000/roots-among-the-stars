@@ -16,8 +16,9 @@ script = ExtResource("1_qac2i")
 [node name="HeartsHFlowContainer" type="HFlowContainer" parent="."]
 layout_mode = 0
 offset_left = 190.0
+offset_top = 4.0
 offset_right = 320.0
-offset_bottom = 22.0
+offset_bottom = 26.0
 theme_override_constants/v_separation = 2
 alignment = 1
 

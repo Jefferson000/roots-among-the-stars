@@ -19,8 +19,8 @@ signal player_damage( hurt_box : HurtBox )
 signal health_changed(hp:int, max_hp:int)
 
 var invulnerable : bool = false
-var hp : int = 6
-var max_hp : int = 6
+@export var hp : int = 6
+@export var max_hp : int = 6
 
 func _ready() -> void:
 	PlayerManager.player = self
