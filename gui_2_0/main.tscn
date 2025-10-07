@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmlorjkslrgai"]
+
+[ext_resource type="PackedScene" uid="uid://b85as4jy5ev2e" path="res://portotype/01.tscn" id="1_3lnb2"]
+[ext_resource type="Script" uid="uid://cbhoa6g2undxe" path="res://gui_2_0/main.gd" id="1_yut8m"]
+[ext_resource type="PackedScene" uid="uid://cc2v6jdkg7gbk" path="res://gui_2_0/hud.tscn" id="2_yut8m"]
+[ext_resource type="PackedScene" uid="uid://5d0bejreowt7" path="res://gui_2_0/pause_menu.tscn" id="3_xwxfi"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_yut8m")
+
+[node name="01" parent="." instance=ExtResource("1_3lnb2")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UI" instance=ExtResource("2_yut8m")]
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("3_xwxfi")]

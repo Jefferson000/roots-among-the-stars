@@ -39,6 +39,8 @@ func _physics_process(_delta: float) -> void:
 	position = position.round()
 
 func _unhandled_input(event: InputEvent) -> void:
+	#if event.is_action("pause"):
+		#print("pause")
 	if event.is_action("test"):
 
 		## Auto Kill Test
@@ -95,7 +97,8 @@ func _take_damage( hit_box : HitBox ) -> void:
 
 func update_hp( delta : int ) -> void:
 	hp = clampi( hp + delta, 0, max_hp )
-	PlayerHud.update_hp(hp, max_hp)
+	#GameManager.health_changed.emit(hp)
+	GameManager.coins_changed.emit(hp)
 
 func make_invulnerable( _duration : float = 1.0 ) -> void:
 	invulnerable = true
