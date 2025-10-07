@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dmlorjkslrgai"]
 
-[ext_resource type="PackedScene" uid="uid://b85as4jy5ev2e" path="res://levels/grassland/01.tscn" id="1_3lnb2"]
+[ext_resource type="PackedScene" uid="uid://b85as4jy5ev2e" path="res://levels/environment/grassland/01.tscn" id="1_3lnb2"]
 [ext_resource type="Script" uid="uid://cbhoa6g2undxe" path="res://gui/main.gd" id="1_yut8m"]
 [ext_resource type="PackedScene" uid="uid://cc2v6jdkg7gbk" path="res://gui/player_hud/player_hud.tscn" id="2_yut8m"]
 [ext_resource type="PackedScene" uid="uid://5d0bejreowt7" path="res://gui/pause_menu/pause_menu.tscn" id="3_xwxfi"]

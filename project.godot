@@ -19,6 +19,7 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 PlayerManager="*res://autoload/player_manager.gd"
 LevelManager="*res://autoload/level_manager.gd"
 GameScaler="*res://autoload/game_scaler.gd"
+SceneTransition="*res://gui/scene_transition/scene_transition.tscn"
 
 [display]
 
