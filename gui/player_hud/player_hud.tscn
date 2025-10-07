@@ -1,12 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://havxl132canf"]
+[gd_scene load_steps=3 format=3 uid="uid://cc2v6jdkg7gbk"]
 
-[ext_resource type="PackedScene" uid="uid://mc545so7t24t" path="res://gui/player_hud/health_bar/heart.tscn" id="1_iitac"]
-[ext_resource type="Script" uid="uid://chivtrq7oj0dg" path="res://gui/player_hud/player_hud.gd" id="1_qr6o2"]
+[ext_resource type="Script" uid="uid://cmkchibx17iqa" path="res://gui/player_hud/player_hud.gd" id="1_qac2i"]
+[ext_resource type="PackedScene" uid="uid://mc545so7t24t" path="res://gui/player_hud/health_bar/heart.tscn" id="2_yx165"]
 
-[node name="PlayerHud" type="CanvasLayer"]
-script = ExtResource("1_qr6o2")
-
-[node name="Control" type="Control" parent="."]
+[node name="HUD" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,8 +11,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("1_qac2i")
 
-[node name="HeartsHFlowContainer" type="HFlowContainer" parent="Control"]
+[node name="HeartsHFlowContainer" type="HFlowContainer" parent="."]
 layout_mode = 0
 offset_left = 190.0
 offset_right = 320.0
@@ -23,62 +21,62 @@ offset_bottom = 22.0
 theme_override_constants/v_separation = 2
 alignment = 1
 
-[node name="Heart" parent="Control/HeartsHFlowContainer" instance=ExtResource("1_iitac")]
+[node name="Heart" parent="HeartsHFlowContainer" instance=ExtResource("2_yx165")]
 layout_mode = 2
 
-[node name="Heart2" parent="Control/HeartsHFlowContainer" instance=ExtResource("1_iitac")]
+[node name="Heart2" parent="HeartsHFlowContainer" instance=ExtResource("2_yx165")]
 layout_mode = 2
 
-[node name="Heart3" parent="Control/HeartsHFlowContainer" instance=ExtResource("1_iitac")]
+[node name="Heart3" parent="HeartsHFlowContainer" instance=ExtResource("2_yx165")]
 layout_mode = 2
 
-[node name="Heart4" parent="Control/HeartsHFlowContainer" instance=ExtResource("1_iitac")]
+[node name="Heart4" parent="HeartsHFlowContainer" instance=ExtResource("2_yx165")]
 layout_mode = 2
 
-[node name="Heart5" parent="Control/HeartsHFlowContainer" instance=ExtResource("1_iitac")]
+[node name="Heart5" parent="HeartsHFlowContainer" instance=ExtResource("2_yx165")]
 layout_mode = 2
 
-[node name="Heart6" parent="Control/HeartsHFlowContainer" instance=ExtResource("1_iitac")]
+[node name="Heart6" parent="HeartsHFlowContainer" instance=ExtResource("2_yx165")]
 layout_mode = 2
 
-[node name="Heart7" parent="Control/HeartsHFlowContainer" instance=ExtResource("1_iitac")]
+[node name="Heart7" parent="HeartsHFlowContainer" instance=ExtResource("2_yx165")]
 layout_mode = 2
 
-[node name="Heart8" parent="Control/HeartsHFlowContainer" instance=ExtResource("1_iitac")]
+[node name="Heart8" parent="HeartsHFlowContainer" instance=ExtResource("2_yx165")]
 layout_mode = 2
 
-[node name="Heart9" parent="Control/HeartsHFlowContainer" instance=ExtResource("1_iitac")]
+[node name="Heart9" parent="HeartsHFlowContainer" instance=ExtResource("2_yx165")]
 layout_mode = 2
 
-[node name="Heart10" parent="Control/HeartsHFlowContainer" instance=ExtResource("1_iitac")]
+[node name="Heart10" parent="HeartsHFlowContainer" instance=ExtResource("2_yx165")]
 layout_mode = 2
 
-[node name="Heart11" parent="Control/HeartsHFlowContainer" instance=ExtResource("1_iitac")]
+[node name="Heart11" parent="HeartsHFlowContainer" instance=ExtResource("2_yx165")]
 layout_mode = 2
 
-[node name="Heart12" parent="Control/HeartsHFlowContainer" instance=ExtResource("1_iitac")]
+[node name="Heart12" parent="HeartsHFlowContainer" instance=ExtResource("2_yx165")]
 layout_mode = 2
 
-[node name="Heart13" parent="Control/HeartsHFlowContainer" instance=ExtResource("1_iitac")]
+[node name="Heart13" parent="HeartsHFlowContainer" instance=ExtResource("2_yx165")]
 layout_mode = 2
 
-[node name="Heart14" parent="Control/HeartsHFlowContainer" instance=ExtResource("1_iitac")]
+[node name="Heart14" parent="HeartsHFlowContainer" instance=ExtResource("2_yx165")]
 layout_mode = 2
 
-[node name="Heart15" parent="Control/HeartsHFlowContainer" instance=ExtResource("1_iitac")]
+[node name="Heart15" parent="HeartsHFlowContainer" instance=ExtResource("2_yx165")]
 layout_mode = 2
 
-[node name="Heart16" parent="Control/HeartsHFlowContainer" instance=ExtResource("1_iitac")]
+[node name="Heart16" parent="HeartsHFlowContainer" instance=ExtResource("2_yx165")]
 layout_mode = 2
 
-[node name="Heart17" parent="Control/HeartsHFlowContainer" instance=ExtResource("1_iitac")]
+[node name="Heart17" parent="HeartsHFlowContainer" instance=ExtResource("2_yx165")]
 layout_mode = 2
 
-[node name="Heart18" parent="Control/HeartsHFlowContainer" instance=ExtResource("1_iitac")]
+[node name="Heart18" parent="HeartsHFlowContainer" instance=ExtResource("2_yx165")]
 layout_mode = 2
 
-[node name="Heart19" parent="Control/HeartsHFlowContainer" instance=ExtResource("1_iitac")]
+[node name="Heart19" parent="HeartsHFlowContainer" instance=ExtResource("2_yx165")]
 layout_mode = 2
 
-[node name="Heart20" parent="Control/HeartsHFlowContainer" instance=ExtResource("1_iitac")]
+[node name="Heart20" parent="HeartsHFlowContainer" instance=ExtResource("2_yx165")]
 layout_mode = 2

@@ -3,6 +3,7 @@ extends Node
 
 signal interact_pressed
 signal camera_shook( trauma : float )
+signal player_ready
 
 const PLAYER = preload("res://player/player.tscn")
 var player : Player
@@ -11,13 +12,15 @@ var interact_handled : bool = true
 
 
 func _ready() -> void:
-	add_player_instance()
+	await add_player_instance()
 	await get_tree().create_timer( 0.2 ).timeout
 	player_spawned = true
+	player_ready.emit()
 
 func add_player_instance() -> void:
 	player = PLAYER.instantiate()
-	add_child( player )
+	add_child(player)
+	await get_tree().process_frame
 
 func set_health( hp: int, max_hp : int ) -> void:
 	player.max_hp = max_hp

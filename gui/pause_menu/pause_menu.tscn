@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://5d0bejreowt7"]
 
-[ext_resource type="Script" uid="uid://dkufqjy1wb56g" path="res://gui_2_0/pause_menu.gd" id="1_p47o1"]
+[ext_resource type="Script" uid="uid://dkufqjy1wb56g" path="res://gui/pause_menu/pause_menu.gd" id="1_p47o1"]
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
