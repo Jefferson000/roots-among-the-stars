@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0ci10fpsts4y"
-path="res://.godot/imported/gui-heart.png-ad01c6f3457c8f692a27667530044c94.ctex"
+uid="uid://cwq5nfuiu8g28"
+path="res://.godot/imported/hearst.png-649097d59f43c4643a8d12bafbe3b4fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gui/player_hud/health_bar/sprites/gui-heart.png"
-dest_files=["res://.godot/imported/gui-heart.png-ad01c6f3457c8f692a27667530044c94.ctex"]
+source_file="res://gui/player_hud/health_bar/sprites/hearst.png"
+dest_files=["res://.godot/imported/hearst.png-649097d59f43c4643a8d12bafbe3b4fb.ctex"]
 
 [params]
 

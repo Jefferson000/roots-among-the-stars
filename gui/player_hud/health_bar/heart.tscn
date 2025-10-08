@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://mc545so7t24t"]
 
 [ext_resource type="Script" uid="uid://dhlkfaris0w6d" path="res://gui/player_hud/health_bar/heart.gd" id="1_f8cev"]
-[ext_resource type="Texture2D" uid="uid://b0ci10fpsts4y" path="res://gui/player_hud/health_bar/sprites/gui-heart.png" id="2_roeib"]
+[ext_resource type="Texture2D" uid="uid://cwq5nfuiu8g28" path="res://gui/player_hud/health_bar/sprites/hearst.png" id="2_leun8"]
 
 [node name="Heart" type="Control"]
 custom_minimum_size = Vector2(9, 9)
@@ -12,7 +12,6 @@ offset_bottom = 9.0
 script = ExtResource("1_f8cev")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_roeib")
+texture = ExtResource("2_leun8")
 centered = false
-hframes = 7
-vframes = 2
+hframes = 3
