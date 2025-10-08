@@ -11,15 +11,18 @@ config_version=5
 [application]
 
 config/name="Roots Among The Sky"
-run/main_scene="uid://dmlorjkslrgai"
+run/main_scene="uid://b85as4jy5ev2e"
 config/features=PackedStringArray("4.5", "Forward Plus")
 
 [autoload]
 
+PauseMenu="*res://gui/pause_menu/pause_menu.tscn"
+PlayerHud="*res://gui/player_hud/player_hud.tscn"
 PlayerManager="*res://autoload/player_manager.gd"
 LevelManager="*res://autoload/level_manager.gd"
 GameScaler="*res://autoload/game_scaler.gd"
 SceneTransition="*res://gui/scene_transition/scene_transition.tscn"
+SaveManager="*res://autoload/save_manager.gd"
 
 [display]
 
@@ -27,6 +30,10 @@ window/size/viewport_width=320
 window/size/viewport_height=180
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
+
+[global_group]
+
+GUI="GUI Stuff"
 
 [gui]
 

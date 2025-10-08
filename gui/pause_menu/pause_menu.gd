@@ -1,35 +1,61 @@
-extends Control
+extends CanvasLayer
 
-@onready var resume_button = $VBoxContainer/ResumeButton
-@onready var quit_button = $VBoxContainer/QuitButton
+signal shown
+signal hidden
 
-func _ready():
-	process_mode = Node.PROCESS_MODE_ALWAYS
-	resume_button.pressed.connect(_on_resume_pressed)
-	quit_button.pressed.connect(_on_quit_pressed)
-	setup_pixel_buttons()
-	hide()
+@onready var load_button: Button = $Control/HBoxContainer/LoadButton
+@onready var save_button: Button = $Control/HBoxContainer/SaveButton
+#@onready var item_description: Label = $Control/ItemDescription
+#@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
-func setup_pixel_buttons():
-	var buttons = [resume_button, quit_button]
-	for button in buttons:
-		button.add_theme_font_size_override("font_size", 16)
+var is_paused : bool = false
 
-func _on_resume_pressed():
-	print("resume pressed")
+func _ready() -> void:
+	hide_pause_menu()
+	save_button.pressed.connect( _on_save_pressed )
+	load_button.pressed.connect( _on_load_pressed )
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		if is_paused == false:
+			#if DialogSystem.is_active:
+				#return
+			show_pause_menu()
+		else:
+			hide_pause_menu()
+		get_viewport().set_input_as_handled()
+
+func show_pause_menu() -> void:
+	get_tree().paused = true
+	visible = true
+	is_paused = true
+	shown.emit()
+
+func hide_pause_menu() -> void:
 	get_tree().paused = false
-	hide()
-	# Force the HUD to show
-	get_parent().show()
+	visible = false
+	is_paused = false
+	hidden.emit()
 
-func _on_quit_pressed():
-	print("quit pressed")
-	get_tree().paused = false
-	#SceneManager.load_menu()
+func _on_save_pressed() -> void:
+	if not is_paused:
+		return
+	SaveManager.save_game()
+	hide_pause_menu()
 
-# Add this function to properly show the menu
-func show_menu():
-	show()
-	# Ensure buttons are visible and interactive
-	resume_button.disabled = false
-	quit_button.disabled = false
+
+func _on_load_pressed() -> void:
+	if not is_paused:
+		return
+	hide_pause_menu()
+	await get_tree().process_frame
+	SaveManager.load_game()
+	await LevelManager.level_load_started
+	pass
+
+#func update_item_description( new_text : String ) -> void:
+	#item_description.text = new_text
+#
+#func play_audio( sound : AudioStream  ) -> void:
+	#audio_stream_player.stream = sound
+	#audio_stream_player.play()

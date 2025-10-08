@@ -16,7 +16,6 @@ var direction : Vector2 = Vector2.ZERO
 
 signal direction_changed( new_direction: Vector2 )
 signal player_damage( hurt_box : HurtBox )
-signal health_changed(hp:int, max_hp:int)
 
 var invulnerable : bool = false
 @export var hp : int = 6
@@ -26,7 +25,7 @@ func _ready() -> void:
 	PlayerManager.player = self
 	state_machine.initialize(self)
 	hurt_box.damaged.connect( _take_damage )
-	#update_hp(99)
+	update_hp(99)
 
 func _process(_delta: float) -> void:
 	direction = Vector2(
@@ -98,7 +97,7 @@ func _take_damage( hit_box : HitBox ) -> void:
 
 func update_hp( delta : int ) -> void:
 	hp = clampi( hp + delta, 0, max_hp )
-	health_changed.emit(hp, max_hp)
+	PlayerHud.update_hp(hp, max_hp)
 
 func make_invulnerable( _duration : float = 1.0 ) -> void:
 	invulnerable = true
