@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwq5nfuiu8g28"
-path="res://.godot/imported/hearst.png-649097d59f43c4643a8d12bafbe3b4fb.ctex"
+uid="uid://dbdimjoyoe6kv"
+path="res://.godot/imported/normal_button.png-e272d41270f42a26541d814e0661eba9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gui/player_hud/health_bar/sprites/hearst.png"
-dest_files=["res://.godot/imported/hearst.png-649097d59f43c4643a8d12bafbe3b4fb.ctex"]
+source_file="res://gui/menu/main_menu/sprites/normal_button.png"
+dest_files=["res://.godot/imported/normal_button.png-e272d41270f42a26541d814e0661eba9.ctex"]
 
 [params]
 

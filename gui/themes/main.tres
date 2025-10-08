@@ -1,0 +1,56 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://bbslgjojmas7c"]
+
+[ext_resource type="FontFile" uid="uid://sqe2yxlaa4qo" path="res://gui/fonts/dogica.ttf" id="1_uolca"]
+[ext_resource type="StyleBox" uid="uid://cf8hvrek3ibma" path="res://gui/themes/focus_button.tres" id="2_sw2wv"]
+[ext_resource type="StyleBox" uid="uid://cw7ly3bfj8enu" path="res://gui/themes/normal_button.tres" id="2_uolca"]
+[ext_resource type="StyleBox" uid="uid://bvoxfl0r71yn0" path="res://gui/themes/press_button.tres" id="4_2chw7"]
+[ext_resource type="Texture2D" uid="uid://b5muf6imkx07s" path="res://gui/menu/main_menu/sprites/text_panel.png" id="5_22yg7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6weay"]
+texture = ExtResource("5_22yg7")
+texture_margin_left = 11.0
+texture_margin_top = 11.0
+texture_margin_right = 11.0
+texture_margin_bottom = 11.0
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_22yg7"]
+bg_color = Color(0.27284035, 0.65902025, 0.75360256, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2chw7"]
+content_margin_right = 1.0
+bg_color = Color(0, 0.67058825, 0.7764706, 0)
+
+[resource]
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 8
+Button/fonts/font = ExtResource("1_uolca")
+Button/styles/focus = ExtResource("2_sw2wv")
+Button/styles/hover = ExtResource("2_uolca")
+Button/styles/normal = ExtResource("2_uolca")
+Button/styles/pressed = ExtResource("4_2chw7")
+Label/font_sizes/font_size = 8
+Panel/styles/panel = SubResource("StyleBoxTexture_6weay")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_22yg7")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_2chw7")

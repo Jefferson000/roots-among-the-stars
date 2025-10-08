@@ -37,7 +37,7 @@ GUI="GUI Stuff"
 
 [gui]
 
-theme/custom="uid://6oek8wgxui50"
+theme/custom_font="uid://sqe2yxlaa4qo"
 
 [input]
 
