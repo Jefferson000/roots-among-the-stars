@@ -41,8 +41,6 @@ func load_new_level(
 	level_loaded.emit()
 
 	if level is Level:
-		print("level")
 		return level
 	else:
-		print("not level")
 		return null

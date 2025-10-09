@@ -21,7 +21,6 @@ func _ready() -> void:
 	confirmation_dialog.confirmed.connect(_on_quit_confirmed)
 
 func new_game() -> void:
-	print("starting new game")
 	#animation_player.play("hide_main_menu")
 	#await animation_player.animation_finished
 	Global.game_manager.change_gui_scene(IN_GAME)

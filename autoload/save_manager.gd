@@ -31,14 +31,12 @@ func get_save_file() -> FileAccess:
 	return FileAccess.open(SAVE_PATH + "save.sav", FileAccess.READ)
 
 func load_game() -> void:
-	print("loading game from save manager")
 	var file := get_save_file()
 	if file:
 		var json := JSON.new()
 		json.parse( file.get_line() )
 		var save_dict : Dictionary = json.get_data() as Dictionary
 		current_save = save_dict
-		print(current_save)
 
 		#LevelManager.load_new_level(current_save.scene_path, "", Vector2.ZERO)
 #
