@@ -4,6 +4,7 @@ func _ready() -> void:
 	LevelManager.tile_map_bounds_changed.connect(update_limits)
 	update_limits(LevelManager.current_tilemap_bounds)
 	#PlayerManager.camera_shook.connect( add_camara_shake ) TODO
+	pass
 
 # TODO
 #func _physics_process(delta: float) -> void:

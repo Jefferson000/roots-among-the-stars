@@ -1,13 +1,14 @@
 extends Control
 
-const FIRST_LEVEL := preload("res://levels/environment/grassland/01.tscn")
+const FIRST_LEVEL := "res://levels/environment/grassland/01.tscn"
+const IN_GAME := "res://gui/in_game/in_game.tscn"
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-@onready var load_button: Button = $MainMenu/VBoxContainer/Load
+@onready var load_button: Button = $StartingMenu/VBoxContainer/Load
 @onready var back_to_main_menu: Button = $LoadMenu/BackToMainMenu
-@onready var new_game_button: Button = $MainMenu/VBoxContainer/New
-@onready var quit_button: Button = $MainMenu/VBoxContainer/Quit
+@onready var new_game_button: Button = $StartingMenu/VBoxContainer/New
+@onready var quit_button: Button = $StartingMenu/VBoxContainer/Quit
 @onready var save_slots: VBoxContainer = $LoadMenu/SaveSlots
 @onready var confirmation_dialog: ConfirmationDialog = $ConfirmationDialog
 
@@ -21,10 +22,11 @@ func _ready() -> void:
 
 func new_game() -> void:
 	print("starting new game")
-	animation_player.play("hide_main_menu")
-	await animation_player.animation_finished
-
-	get_tree().change_scene_to_packed(FIRST_LEVEL)
+	#animation_player.play("hide_main_menu")
+	#await animation_player.animation_finished
+	Global.game_manager.change_gui_scene(IN_GAME)
+	Global.game_manager.change_world_scene(FIRST_LEVEL)
+	#get_tree().change_scene_to_packed(FIRST_LEVEL)
 
 func show_load_menu() -> void:
 	if save_slots and save_slots.get_child_count() > 0:

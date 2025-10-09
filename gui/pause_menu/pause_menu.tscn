@@ -1,9 +1,104 @@
-[gd_scene load_steps=2 format=3 uid="uid://5d0bejreowt7"]
+[gd_scene load_steps=8 format=3 uid="uid://5d0bejreowt7"]
 
 [ext_resource type="Script" uid="uid://dkufqjy1wb56g" path="res://gui/pause_menu/pause_menu.gd" id="1_p47o1"]
+[ext_resource type="Theme" uid="uid://bbslgjojmas7c" path="res://gui/themes/main.tres" id="2_1wcnx"]
+[ext_resource type="Texture2D" uid="uid://bqn7f5tjy50dn" path="res://gui/sprites/main_box.png" id="3_u4fh8"]
+
+[sub_resource type="Animation" id="Animation_t7424"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -180)]
+}
+
+[sub_resource type="Animation" id="Animation_u4fh8"]
+resource_name = "hide_pause_menu"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -180)]
+}
+
+[sub_resource type="Animation" id="Animation_ddhtv"]
+resource_name = "show_pause_menu"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(-0.5, -0.5),
+"update": 0,
+"values": [Vector2(0, -180), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nbojc"]
+_data = {
+&"RESET": SubResource("Animation_t7424"),
+&"hide_pause_menu": SubResource("Animation_u4fh8"),
+&"show_pause_menu": SubResource("Animation_ddhtv")
+}
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
+visible = false
 script = ExtResource("1_p47o1")
 
 [node name="Control" type="Control" parent="."]
@@ -11,8 +106,12 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -180.0
+offset_bottom = -180.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_1wcnx")
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 1
@@ -21,29 +120,58 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+mouse_filter = 2
+color = Color(0.1254902, 0.11764706, 0.14901961, 1)
 
-[node name="TitleLabel" type="Label" parent="Control"]
+[node name="NinePatchRect" type="NinePatchRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_u4fh8")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 15
+
+[node name="TitleLabel" type="Label" parent="Control/NinePatchRect"]
 layout_mode = 0
-offset_right = 56.0
-offset_bottom = 18.0
+offset_left = 19.0
+offset_top = 15.0
+offset_right = 75.0
+offset_bottom = 33.0
 text = "PAUSED"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 152.0
-offset_right = 136.0
-offset_bottom = 178.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = -40.0
+offset_right = 77.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
 alignment = 1
 
-[node name="SaveButton" type="Button" parent="Control/HBoxContainer"]
+[node name="SaveButton" type="Button" parent="Control/NinePatchRect/HBoxContainer"]
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 text = "Save"
 
-[node name="LoadButton" type="Button" parent="Control/HBoxContainer"]
+[node name="LoadButton" type="Button" parent="Control/NinePatchRect/HBoxContainer"]
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 text = "Load
 "
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_nbojc")
+}

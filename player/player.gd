@@ -35,6 +35,7 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(_delta: float) -> void:
+	pass
 	move_and_slide()
 	position = position.round()
 
@@ -97,7 +98,7 @@ func _take_damage( hit_box : HitBox ) -> void:
 
 func update_hp( delta : int ) -> void:
 	hp = clampi( hp + delta, 0, max_hp )
-	PlayerHud.update_hp(hp, max_hp)
+	Global.player_hud.update_hp(hp, max_hp)
 
 func make_invulnerable( _duration : float = 1.0 ) -> void:
 	invulnerable = true

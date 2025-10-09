@@ -41,5 +41,5 @@ side = 3
 
 [node name="LeftLevelTransition" parent="." instance=ExtResource("5_vr13i")]
 position = Vector2(0, 144)
-level = "uid://v3kty4nfwbui"
+level = "uid://5p6bynusk7k0"
 target_transition_area = "RightLevelTransition"

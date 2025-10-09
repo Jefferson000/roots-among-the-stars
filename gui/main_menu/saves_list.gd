@@ -1,6 +1,6 @@
 extends VBoxContainer
 
-const SAVE_SLOT := preload("res://gui/menu/save_slot/save_slot.tscn")
+const SAVE_SLOT := preload("res://gui/main_menu/save_slot/save_slot.tscn")
 const SAVE_DATA := [
 	{"save_id":"slot_1","level_text":"Level 1","time_text":"00:42","description":"Simple description of save on Level 1"},
 	{"save_id":"slot_2","level_text":"Level 2","time_text":"01:10","description":"Simple description of save on Level 2"},

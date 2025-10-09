@@ -4,7 +4,7 @@
 [ext_resource type="StyleBox" uid="uid://cf8hvrek3ibma" path="res://gui/themes/focus_button.tres" id="2_sw2wv"]
 [ext_resource type="StyleBox" uid="uid://cw7ly3bfj8enu" path="res://gui/themes/normal_button.tres" id="2_uolca"]
 [ext_resource type="StyleBox" uid="uid://bvoxfl0r71yn0" path="res://gui/themes/press_button.tres" id="4_2chw7"]
-[ext_resource type="Texture2D" uid="uid://b5muf6imkx07s" path="res://gui/menu/main_menu/sprites/text_panel.png" id="5_22yg7"]
+[ext_resource type="Texture2D" uid="uid://b5muf6imkx07s" path="res://gui/sprites/text_panel.png" id="5_22yg7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6weay"]
 texture = ExtResource("5_22yg7")

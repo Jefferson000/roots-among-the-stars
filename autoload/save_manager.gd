@@ -31,6 +31,7 @@ func get_save_file() -> FileAccess:
 	return FileAccess.open(SAVE_PATH + "save.sav", FileAccess.READ)
 
 func load_game() -> void:
+	print("loading game from save manager")
 	var file := get_save_file()
 	if file:
 		var json := JSON.new()
@@ -39,24 +40,25 @@ func load_game() -> void:
 		current_save = save_dict
 		print(current_save)
 
-		LevelManager.load_new_level(current_save.scene_path, "", Vector2.ZERO)
+		#LevelManager.load_new_level(current_save.scene_path, "", Vector2.ZERO)
+#
+		#await LevelManager.level_load_started
 
-		await LevelManager.level_load_started
-
-		PlayerManager.set_player_position(Vector2(current_save.player.pos_x, current_save.player.pos_y))
-		PlayerManager.set_health(int(current_save.player.hp), int(current_save.player.max_hp))
+		#PlayerManager.set_player_position(Vector2(current_save.player.pos_x, current_save.player.pos_y))
+		#PlayerManager.set_health(int(current_save.player.hp), int(current_save.player.max_hp))
 		#PlayerManager.INVENTORY_DATA.parse_save_data( current_save.items )
 
-		await LevelManager.level_loaded
+		#await LevelManager.level_loaded
 
 		game_loaded.emit()
 
 func update_player_data() -> void:
-	var p : Player = PlayerManager.player
-	current_save.player.hp = p.hp
-	current_save.player.max_hp = p.max_hp
-	current_save.player.pos_x = p.global_position.x
-	current_save.player.pos_y = p.global_position.y
+	pass
+	#var p : Player = PlayerManager.player
+	#current_save.player.hp = p.hp
+	#current_save.player.max_hp = p.max_hp
+	#current_save.player.pos_x = p.global_position.x
+	#current_save.player.pos_y = p.global_position.y
 
 func update_scene_path() -> void:
 	var p : String = ""

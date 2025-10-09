@@ -26,25 +26,29 @@ enum SIDE { LEFT, RIGHT, TOP, BOTTOM }
 
 
 func _ready() -> void:
+	print("on ready")
 	_update_area()
 	if Engine.is_editor_hint():
 		return
+	print(level)
 
 	if level == null: return
-
 	monitoring = false
 	_place_player()
 
-	await LevelManager.level_loaded
+	print("started waiting level loaded on level_transition")
+	#await LevelManager.level_loaded
+	print("finished waiting level loaded on level_transition")
 	monitoring = true
 	body_entered.connect( _player_entered )
+	print("connected")
 
 func _player_entered( _p : Node2D ) -> void:
-	LevelManager.load_new_level( level, target_transition_area, get_offset() )
+	print("entered")
+	Global.game_manager.change_world_scene(level, target_transition_area, get_offset())
 	pass
 
 func _place_player() -> void:
-
 	if name != LevelManager.target_transition:
 		return
 	PlayerManager.set_player_position( global_position + LevelManager.position_offset )

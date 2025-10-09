@@ -1,16 +1,18 @@
-extends CanvasLayer
+class_name PauseMenu extends CanvasLayer
 
 signal shown
 signal hidden
 
-@onready var load_button: Button = $Control/HBoxContainer/LoadButton
-@onready var save_button: Button = $Control/HBoxContainer/SaveButton
+@onready var load_button: Button = $Control/NinePatchRect/HBoxContainer/LoadButton
+@onready var save_button: Button = $Control/NinePatchRect/HBoxContainer/SaveButton
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 #@onready var item_description: Label = $Control/ItemDescription
 #@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 var is_paused : bool = false
 
 func _ready() -> void:
+	Global.pause_menu = self
 	hide_pause_menu()
 	save_button.pressed.connect( _on_save_pressed )
 	load_button.pressed.connect( _on_load_pressed )
@@ -27,20 +29,22 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func show_pause_menu() -> void:
 	get_tree().paused = true
-	visible = true
+	animation_player.play("show_pause_menu")
+	await animation_player.animation_finished
 	is_paused = true
 	shown.emit()
 
 func hide_pause_menu() -> void:
 	get_tree().paused = false
-	visible = false
+	animation_player.play("hide_pause_menu")
+	await animation_player.animation_finished
 	is_paused = false
 	hidden.emit()
 
 func _on_save_pressed() -> void:
 	if not is_paused:
 		return
-	SaveManager.save_game()
+	#SaveManager.save_game()
 	hide_pause_menu()
 
 
@@ -49,8 +53,8 @@ func _on_load_pressed() -> void:
 		return
 	hide_pause_menu()
 	await get_tree().process_frame
-	SaveManager.load_game()
-	await LevelManager.level_load_started
+	#SaveManager.load_game()
+	#await LevelManager.level_load_started
 	pass
 
 #func update_item_description( new_text : String ) -> void:

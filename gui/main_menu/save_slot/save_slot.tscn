@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c4iemqnq26l4j"]
 
 [ext_resource type="Theme" uid="uid://bbslgjojmas7c" path="res://gui/themes/main.tres" id="1_j7i8o"]
-[ext_resource type="Script" uid="uid://cjssxwp2rofvf" path="res://gui/menu/save_slot/save_slot.gd" id="3_ns78j"]
+[ext_resource type="Script" uid="uid://cjssxwp2rofvf" path="res://gui/main_menu/save_slot/save_slot.gd" id="3_ns78j"]
 
 [node name="SaveSlot" type="Button"]
 custom_minimum_size = Vector2(94, 24)

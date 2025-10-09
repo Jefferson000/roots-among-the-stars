@@ -1,9 +1,10 @@
-extends Node
+class_name PlayerHud extends CanvasLayer
 
 
 var hearts: Array[HeartGUI] = []
 
 func _ready():
+	Global.player_hud = self
 	for child in $Control/HeartsHFlowContainer.get_children():
 		if child is HeartGUI:
 			hearts.append(child)

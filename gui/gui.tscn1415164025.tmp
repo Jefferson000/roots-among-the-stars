@@ -1,0 +1,340 @@
+[gd_scene load_steps=13 format=3 uid="uid://cp73t77hkhyq4"]
+
+[ext_resource type="Theme" uid="uid://bbslgjojmas7c" path="res://gui/themes/main.tres" id="1_ioifv"]
+[ext_resource type="Texture2D" uid="uid://bqn7f5tjy50dn" path="res://gui/menu/main_menu/sprites/main_box.png" id="1_yw5qc"]
+[ext_resource type="Script" uid="uid://bcwsdmnaxwmnc" path="res://gui/gui.gd" id="2_n360k"]
+[ext_resource type="PackedScene" uid="uid://dheelv2novlwa" path="res://levels/spawn/player_spawn.tscn" id="2_q46mf"]
+[ext_resource type="Script" uid="uid://cjx3tghy8aquy" path="res://gui/saves_list.gd" id="5_hp187"]
+[ext_resource type="Texture2D" uid="uid://dacusfycvish6" path="res://gui/menu/main_menu/sprites/main_menu_background.png" id="6_ytf3d"]
+
+[sub_resource type="Animation" id="Animation_ytf3d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LoadMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(48, 14)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LoadMenu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainMenu:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(104, 14)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MainMenu:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_hp187"]
+resource_name = "hide_load_menu"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LoadMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(48, 14), Vector2(350, 14)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LoadMenu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_kvi6p"]
+resource_name = "hide_main_menu"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(104, 14), Vector2(-200, 14)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainMenu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_bk7cs"]
+resource_name = "show_load_menu"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LoadMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(350, 14), Vector2(48, 14)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LoadMenu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(2),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_xqkfk"]
+resource_name = "show_main_menu"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-200, 14), Vector2(104, 14)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainMenu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4q42c"]
+_data = {
+&"RESET": SubResource("Animation_ytf3d"),
+&"hide_load_menu": SubResource("Animation_hp187"),
+&"hide_main_menu": SubResource("Animation_kvi6p"),
+&"show_load_menu": SubResource("Animation_bk7cs"),
+&"show_main_menu": SubResource("Animation_xqkfk")
+}
+
+[node name="GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ioifv")
+script = ExtResource("2_n360k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(160.00002, 86.5)
+scale = Vector2(0.1467014, 0.14583333)
+texture = ExtResource("6_ytf3d")
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("2_q46mf")]
+position = Vector2(158, 90)
+
+[node name="MainMenu" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -76.0
+offset_right = 56.000137
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_yw5qc")
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 15
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -37.25
+offset_right = 43.0
+offset_bottom = 37.25
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="New" type="Button" parent="MainMenu/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "New Game"
+
+[node name="Load" type="Button" parent="MainMenu/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Load Game"
+
+[node name="Quit" type="Button" parent="MainMenu/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Quit"
+
+[node name="LoadMenu" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -76.0
+offset_right = 111.9986
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_yw5qc")
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 15
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="SaveSlots" type="VBoxContainer" parent="LoadMenu"]
+custom_minimum_size = Vector2(94, 100)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 16.0
+offset_right = 104.0
+offset_bottom = 116.0
+alignment = 1
+script = ExtResource("5_hp187")
+
+[node name="SaveDescription" type="Panel" parent="LoadMenu"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -92.9986
+offset_top = -56.0
+offset_right = -12.998596
+offset_bottom = 34.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Description" type="Label" parent="LoadMenu/SaveDescription"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="LoadGame" type="Button" parent="LoadMenu"]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 122.0
+offset_right = 210.0
+offset_bottom = 141.0
+focus_mode = 0
+text = "Load Game"
+
+[node name="BackToMainMenu" type="Button" parent="LoadMenu"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 122.0
+offset_right = 91.0
+offset_bottom = 141.0
+text = "Main Menu"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4q42c")
+}
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+title = "Quit Game"
+ok_button_text = "Quit Game"
+dialog_text = "Are you sure you want to quit?"
+cancel_button_text = "Back"
