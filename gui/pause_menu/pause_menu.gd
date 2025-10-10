@@ -44,7 +44,7 @@ func hide_pause_menu() -> void:
 func _on_save_pressed() -> void:
 	if not is_paused:
 		return
-	#SaveManager.save_game()
+	SaveManager.save_game("slot1")
 	hide_pause_menu()
 
 
@@ -53,6 +53,7 @@ func _on_load_pressed() -> void:
 		return
 	hide_pause_menu()
 	await get_tree().process_frame
+	print("trying to load")
 	#SaveManager.load_game()
 	#await LevelManager.level_load_started
 	pass

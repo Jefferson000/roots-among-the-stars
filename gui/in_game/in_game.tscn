@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwi36g3xxbkro"]
+[gd_scene load_steps=4 format=3 uid="uid://dwi36g3xxbkro"]
 
 [ext_resource type="PackedScene" uid="uid://cc2v6jdkg7gbk" path="res://gui/player_hud/player_hud.tscn" id="2_jtd5u"]
+[ext_resource type="PackedScene" uid="uid://dq3uciv6nbed" path="res://gui/scene_transition/scene_transition.tscn" id="3_jtd5u"]
 [ext_resource type="PackedScene" uid="uid://5d0bejreowt7" path="res://gui/pause_menu/pause_menu.tscn" id="3_ormvd"]
 
 [node name="InGame" type="Control"]
@@ -14,3 +15,5 @@ grow_vertical = 2
 [node name="PlayerHud" parent="." instance=ExtResource("2_jtd5u")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("3_ormvd")]
+
+[node name="SceneTransition" parent="." instance=ExtResource("3_jtd5u")]

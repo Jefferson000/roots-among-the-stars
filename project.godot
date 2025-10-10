@@ -20,6 +20,7 @@ Global="*res://autoload/00_global.gd"
 GameScaler="*res://autoload/01_game_scaler.gd"
 LevelManager="*res://autoload/02_level_manager.gd"
 PlayerManager="*res://autoload/03_player_manager.gd"
+SaveManager="*res://autoload/04_save_manager.gd"
 
 [display]
 
